@@ -8,6 +8,3 @@ class Puppy < ApplicationRecord
 
   validates :toilet_training_level, inclusion: { in: [1, 2, 3, 4, 5] }
 end
-
-
-# GIGI is the cutest puppy in our class
