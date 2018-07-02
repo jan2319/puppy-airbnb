@@ -5,5 +5,5 @@ class Review < ApplicationRecord
 
   validates_presence_of :title, :description, :rating
 
-  validates :rating, inclusion { in: [1, 2, 3, 4, 5] }
+  validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
 end
