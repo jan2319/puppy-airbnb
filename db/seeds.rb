@@ -9,7 +9,7 @@
 
 require 'json'
 require 'open-uri'
-require 'pry'
+
 
 
 puts 'Cleaning database...'
@@ -21,8 +21,6 @@ puts 'Creating breeds...'
 breed_list = JSON.parse(open("https://dog.ceo/api/breeds/list/all").read)
 
 breed_array = breed_list["message"].to_a
-
-puts breed_array
 
 breed_array.each do |breed|
   Breed.create(name: breed)
