@@ -1,6 +1,17 @@
 
-<div class="home-banner">
+<!-- <div class="home-banner">
   <%= image_tag asset_path("puppy-banner.jpg"), class:"img-responsive", alt: "Puppy banner" %>
+</div> -->
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= asset_path('puppy-banner.jpg') %>');">
+  <div class="banner-content">
+    <h1>Find yourself a new furry friend today!</h1>
+    <%= simple_form_for @puppies do |f| %>
+    <%= f.input :city, placeholder: 'Type your city name here' %>
+    <%= f.button :submit,'Go' %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container">
