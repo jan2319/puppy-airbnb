@@ -1,17 +1,15 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
+  before_action :set_puppy, only: [:new, :show, :confirm, :create]
 
   def new
     @booking = Booking.new
-    @puppy = Puppy.find(params[:puppy_id])
   end
 
   def show
-    @puppy = Puppy.find(params[:puppy_id])
   end
 
   def confirm
-    @puppy = Puppy.find(params[:puppy_id])
     @booking = Booking.find(params[:booking_id])
     @booking.confirmed = true
     @booking.save
@@ -19,7 +17,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @puppy = Puppy.find(params[:puppy_id])
     @booking = Booking.new(booking_params)
     @booking.puppy = @puppy
     @booking.user_id = 1
@@ -28,7 +25,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to puppy_booking_path(@puppy, @booking)
     else
-      raise
       render :new
     end
   end
@@ -41,6 +37,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_puppy
+    @puppy = Puppy.find(params[:puppy_id])
   end
 end
 
