@@ -4,7 +4,7 @@ class Puppy < ApplicationRecord
   belongs_to :user
   belongs_to :breed
 
-  validates_presence_of :photo_url, :name, :description, :street, :zipcode, :city, :country, :daily_price, :birthdate, :toilet_training_level
+  validates_presence_of :photo_url, :name, :description, :street, :zipcode, :city, :country, :daily_price, :birthdate, :toilet_training_level, :title
 
   validates :toilet_training_level, inclusion: { in: [1, 2, 3, 4, 5] }
 end
