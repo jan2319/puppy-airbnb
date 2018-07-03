@@ -7,4 +7,7 @@ Rails.application.routes.draw do
       get 'confirm', to: "bookings#confirm"
     end
   end
+  resources :bookings, only: [:index] do
+    resources :reviews, only: [:new, :create, :show]
+  end
 end
