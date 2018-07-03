@@ -20,9 +20,42 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
+.navbar-wagon-brand {
   height: 50px;
+  width: 50px;
+  background-image: image-url("logo.png");
+  background-size: cover;
+  position: relative;
 }
+
+.navbar-wagon-brand:hover {
+  background-image: image-url("logo_hover.png");
+}
+
+.navbar-wagon-brand-dark {
+  background-image: image-url("logo_dark.png");
+}
+
+
+
+.navbar-wagon-brand a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none; /* No underlines on the link */
+  z-index: 10; /* Places the link above everything else in the div */
+  background-color: #FFF; /* Fix to make div clickable in IE */
+  opacity: 0; /* Fix to make div clickable in IE */
+  filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
+
+
+
+
+
+
 
 /* User Avatar */
 .navbar-wagon .avatar {

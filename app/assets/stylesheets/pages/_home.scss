@@ -9,6 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-filter: grayscale(10%);
+  // filter: grayscale(10%);
 }
 .banner h1 {
   font-size: 50px;
@@ -21,4 +23,28 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.form-group {
+  display: inline-flex;
+  align-items: center;
+  min-width: 100%;
+  margin: 10 px;
+}
+
+.btn {
+  margin: 10px;
+  min-width: 20%;
+  height: 60px;
+}
+
+.form-control {
+  height: 60px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60%;
 }
