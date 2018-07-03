@@ -5,7 +5,7 @@
   <% @puppies.each do |puppy| %>
     <%= link_to puppy_path(puppy) do %>
       <div class="card-puppy">
-        <%= image_tag(puppy.photo_url, :alt => "puppy pic") %>
+        <%= image_tag(puppy.photo_url, alt: "puppy pic") %>
         <h3><%= puppy.title %></h3>
         <ul>
           <li><%= puppy.name %></li>
