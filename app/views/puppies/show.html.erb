@@ -1,2 +1,31 @@
 <h1>Puppies#show</h1>
 <p>Find me in app/views/puppies/show.html.erb</p>
+
+<div class="container">
+
+  <%= image_tag(@puppy.photo_url, alt: "puppy pic") %>
+
+  <h2><%= @puppy.title %></h2>
+  <h3><%= @puppy.name %></h3>
+
+  <p> <%= @puppy.street %>, <%= @puppy.zipcode %>, <%= @puppy.city %>, <%= @puppy.country %></p>
+  <ul>
+    <li><%= @puppy.description %></li>
+  </ul>
+
+  <ul>
+    <li>Daily Price: <%= @puppy.daily_price %></li>
+    <li>Birthdate: <%= @puppy.birthdate %></li>
+    <li>Breed: <%= @puppy.breed.name %></li>
+    <li>Toilet training level: <%= @puppy.toilet_training_level %></li>
+  </ul>
+
+  <%= link_to "Edit", edit_puppy_path %>
+  <br>
+  <%= link_to "Back to list", puppies_path %>
+
+  </div>
+    <%= render "bookings/form", puppy: @puppy, booking: @booking %>
+  </div>
+
+</div>

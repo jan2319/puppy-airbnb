@@ -1,0 +1,32 @@
+<h1>Bookings#show</h1>
+<p>Find me in app/views/bookings/show.html.erb</p>
+
+
+<% if @booking.confirmed? %>
+
+  <p>Thanks for confirming your booking.</p>
+
+  <%= link_to 'Back to all Puppies' , puppies_path %>
+
+  <br>
+
+<% if  %>
+  <%= link_to "Add a Review", new_booking_review_path(@booking) %>
+
+<% else %>
+
+  <p>Hey, thanks for choosing <%= @puppy.name %>. You'll love him!</p>
+  <p>Please confirm your booking below.</p>
+  <br>
+  <p>Start Date: <%= @booking.start_date %></p>
+  <p>End Date: <%= @booking.end_date %></p>
+  <p>Total Price: <%= @booking.total_price/100 %>,00€</p>
+
+  <p>Name of Puppy: <%= @puppy.name %></p>
+  <p>Pick <%= @puppy.name %> up at: <%= @puppy.street %></p>
+
+
+  <%= link_to 'Confirm' , puppy_booking_confirm_path(@puppy, @booking) %>
+
+
+<% end %>
