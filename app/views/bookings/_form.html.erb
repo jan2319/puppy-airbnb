@@ -1,0 +1,13 @@
+<%= simple_form_for [@puppy, @booking] do |f| %>
+  <%= f.input :start_date, as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year + 3, discard_hour: true,
+                              order: [:day, :month, :year] %>
+  <%= f.input :end_date, as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year + 3, discard_hour: true,
+                              order: [:day, :month, :year] %>
+  <%= hidden_field_tag 'total_price', @puppy.daily_price %>
+  <p>Price per Day: <%= @puppy.daily_price/100 %>,00 €</p>
+
+  <%= f.submit "Book Now", class: "btn btn-primary" %>
+<% end %>
+
