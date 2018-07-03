@@ -3,13 +3,16 @@
 
 <div class="container">
   <% @puppies.each do |puppy| %>
-    <div class="card-puppy">
-      <h3><%= puppy.title %></h3>
-      <ul>
-        <li><%= puppy.name %></li>
-        <li> <%= puppy.description %></li>
-        <li><%= puppy.daily_price %></li>
-      </ul>
-    </div>
+    <%= link_to puppy_path(puppy) do %>
+      <div class="card-puppy">
+        <%= image_tag(puppy.photo_url, :alt => "puppy pic") %>
+        <h3><%= puppy.title %></h3>
+        <ul>
+          <li><%= puppy.name %></li>
+          <li> <%= puppy.description %></li>
+          <li><%= puppy.daily_price %></li>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 </div>
