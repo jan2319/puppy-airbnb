@@ -3,7 +3,7 @@ class PuppiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @body_class = "need-padding"
+    @body_class = "extra-padding"
     @puppies = Puppy.all
   end
 

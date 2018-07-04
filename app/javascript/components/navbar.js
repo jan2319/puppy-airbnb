@@ -1,19 +1,24 @@
 function initUpdateNavbarOnScroll() {
   const navbar = document.querySelector('.navbar-wagon');
-  const logo = document.querySelector('.navbar-wagon-brand');
-  if (navbar) {
-    window.addEventListener('scroll', () => {
-            console.log(window.scrollY)
+  const logo = document.querySelector('.navbar-wagon-brand-dark');
+  if (top.location.pathname === '/') {
+    if (navbar) {
+      navbar.classList.add('navbar-wagon-home');
+      logo.classList.add('navbar-wagon-brand');
 
-      if (window.scrollY >= window.innerHeight - 50) {
-        navbar.classList.add('navbar-wagon-white');
-        logo.classList.add('navbar-wagon-brand-dark');
+      window.addEventListener('scroll', () => {
+              console.log(window.scrollY)
 
-      } else {
-        navbar.classList.remove('navbar-wagon-white');
-        logo.classList.remove('navbar-wagon-brand-dark');
-      }
-    });
+        if (window.scrollY >= window.innerHeight - 50) {
+          navbar.classList.remove('navbar-wagon-home');
+          logo.classList.remove('navbar-wagon-brand');
+
+        } else {
+          navbar.classList.add('navbar-wagon-home');
+          logo.classList.add('navbar-wagon-brand');
+        }
+      });
+    }
   }
 }
 

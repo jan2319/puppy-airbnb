@@ -1,18 +1,22 @@
-<h1>Puppies#index</h1>
-<p>Find me in app/views/puppies/index.html.erb</p>
 
-<div class="container">
-  <% @puppies.each do |puppy| %>
-    <%= link_to puppy_path(puppy) do %>
-      <div class="card-puppy">
-        <%= image_tag(puppy.photo_url, alt: "puppy pic") %>
-        <h3><%= puppy.title %></h3>
-        <ul>
-          <li><%= puppy.name %></li>
-          <li> <%= puppy.description %></li>
-          <li><%= puppy.daily_price %></li>
-        </ul>
+
+
+
+
+<div class="container index-container">
+  <div class="row">
+    <% @puppies.each do |puppy| %>
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= puppy.photo_url %>');">
+        <div class="card-category"><%= puppy.name %></div>
+        <div class="card-description">
+          <h2><%= puppy.title %></h2>
+          <p>$<%= puppy.daily_price / 100 %></p>
+        </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random">
+        <a class="card-link" href="<%= puppy_path(puppy) %>" ></a>
       </div>
+    </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
