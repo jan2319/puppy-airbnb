@@ -1,5 +1,6 @@
 class PuppiesController < ApplicationController
   before_action :set_puppy, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @body_class = "need-padding"
@@ -8,6 +9,7 @@ class PuppiesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @reviews = Review.where("puppy_id = ?", params[:id])
   end
 
   def new

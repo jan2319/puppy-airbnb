@@ -1,9 +1,15 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
   before_action :set_puppy, only: [:new, :show, :confirm, :create]
+  skip_before_action :authenticate_user!, only: [:new]
+
+  def index
+    @bookings = Booking.where("user_id = ?", current_user.id)
+    @printed = false
+    @reviews = Review.where("user_id = ?", current_user.id)
+  end
 
   def new
-    @booking = Booking.new
   end
 
   def show
@@ -19,7 +25,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.puppy = @puppy
-    @booking.user_id = 1
+    @booking.user_id = current_user.id
     @booking.total_price = params["total_price"]
 
     if @booking.save

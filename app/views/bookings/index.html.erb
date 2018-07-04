@@ -1,1 +1,27 @@
-<p><%= @bookings %></p>
+<div class="container">
+
+  <% @bookings.each do |booking| %>
+    <% if booking.confirmed %>
+    <% @printed = true %>
+      <%= link_to puppy_booking_path(booking.puppy, booking) do %>
+        <div class="card-puppy">
+          <h3>Your booking of <%= booking.puppy.name %></h3>
+          <ul>
+            <li><%= booking.start_date %></li>
+            <li> <%= booking.end_date %></li>
+            <li><%= booking.total_price/100 %>,00€</li>
+
+            <li>
+              <%= link_to "Add a Review", new_booking_review_path(booking) %>
+            </li>
+
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@printed %>
+    <h3>Sorry, you do not have any confirmed bookings, yet.</h3>
+  <% end %>
+</div>
