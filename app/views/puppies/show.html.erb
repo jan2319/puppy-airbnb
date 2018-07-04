@@ -20,6 +20,7 @@
       </div>
       <%= image_tag(@puppy.photo_url, class: "profile-image", alt: "puppy pic") %>
     </div>
+  </div>
 
     <div class="container index-container">
       <div class="row top-space">
@@ -52,8 +53,9 @@
 
           <%= link_to "Back to list", puppies_path %>
 
+        </div>
           <div class="col-xs-12 col-sm-4 col-md-3">
             <%= render "bookings/form", puppy: @puppy, booking: @booking %>
           </div>
-        </div>
       </div>
+    </div>
