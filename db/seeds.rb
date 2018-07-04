@@ -13,6 +13,8 @@ require 'open-uri'
 
 
 puts 'Cleaning database...'
+Review.destroy_all
+Booking.destroy_all
 Puppy.destroy_all
 Breed.destroy_all
 
@@ -23,11 +25,13 @@ breed_list = JSON.parse(open("https://dog.ceo/api/breeds/list/all").read)
 breed_array = breed_list["message"].to_a
 
 breed_array.each do |breed|
-  Breed.create(name: breed)
+  Breed.create(name: breed[0].capitalize)
 end
 
+
+
 user_attributes = [
-  { email: "puppylover@gmail.com",
+  { email: "puppylover2@gmail.com",
     password: "password",
     password_confirmation: "password",
     phone: "+4915123008181",

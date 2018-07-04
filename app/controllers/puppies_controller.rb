@@ -21,6 +21,7 @@ class PuppiesController < ApplicationController
   end
 
   def create
+    puppy_params[:daily_price] = puppy_params[:daily_price].to_f.round(2) * 100
     @puppy = Puppy.new(puppy_params)
     @puppy.user = current_user
     if @puppy.save
