@@ -16,9 +16,15 @@
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-      <a href="" class="navbar-wagon-item navbar-wagon-link">Share Your Puppy</a>
-      <a href="" class="navbar-wagon-item navbar-wagon-link">Sign In</a>
-      <a href="" class="navbar-wagon-item navbar-wagon-link">Log In</a>
+
+    <%= link_to 'Share Your Puppy', new_puppy_path, class: "navbar-wagon-item navbar-wagon-link"%>
+
+    <% if user_signed_in?  %>
+    <%= link_to 'Log Out', destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete%>
+    <% else %>
+    <%= link_to 'Sign Up', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <%= link_to 'Log In', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <% end %>
 
       <!-- Profile picture with dropdown list -->
 <!--     <div class="navbar-wagon-item">
