@@ -11,7 +11,7 @@ class PuppiesController < ApplicationController
       @puppies = Puppy.all
     end
     @body_class = "extra-padding"
-    
+
   end
 
   def show
