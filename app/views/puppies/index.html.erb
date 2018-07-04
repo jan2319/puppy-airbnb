@@ -5,6 +5,9 @@
 
 <div class="container index-container">
   <div class="row">
+  <% if @puppies.empty? %>
+    <p>Sorry, we couldn't find puppies in your city.</p>
+  <% end %>
     <% @puppies.each do |puppy| %>
     <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= puppy.photo_url %>');">

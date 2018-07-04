@@ -6,6 +6,7 @@ class PuppiesController < ApplicationController
 
     if !params[:city].nil? && !params[:city].empty?
       @puppies = Puppy.where("city LIKE ?", "%#{params[:city].capitalize}%")
+      @no_search_results = false
     else
       @puppies = Puppy.all
     end
