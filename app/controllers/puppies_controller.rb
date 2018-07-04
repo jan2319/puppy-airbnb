@@ -4,12 +4,22 @@ class PuppiesController < ApplicationController
 
   def index
 
-    if !params[:city].nil? && !params[:city].empty?
-      @puppies = Puppy.where("city LIKE ?", "%#{params[:city].capitalize}%")
-      @no_search_results = false
-    else
-      @puppies = Puppy.all
+    @puppies = Puppy.where.not(latitude: nil, longitude: nil)
+
+    @markers = @puppies.map do |puppy|
+      {
+        lat: puppy.latitude,
+        lng: puppy.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
     end
+    # STEPHANIES Old Code
+    # if !params[:city].nil? && !params[:city].empty?
+    #   @puppies = Puppy.where("city LIKE ?", "%#{params[:city].capitalize}%")
+    #   @no_search_results = false
+    # else
+    #   @puppies = Puppy.all
+    # end
     @body_class = "extra-padding"
 
   end
