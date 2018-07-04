@@ -36,8 +36,14 @@
 
   <% end %>
 
-  <%= link_to "Edit", edit_puppy_path %>
+  <% if @puppy.user.id == current_user.id %>
+    <%= link_to "Edit", edit_puppy_path %>
+    <%= link_to "Delete", puppy_path(@puppy), method: :delete %>
+  <% else %>
+  <% end %>
+
   <br>
+
   <%= link_to "Back to list", puppies_path %>
 
   </div>
