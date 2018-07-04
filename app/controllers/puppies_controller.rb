@@ -3,13 +3,15 @@ class PuppiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
+
     if !params[:city].nil? && !params[:city].empty?
       @puppies = Puppy.where("city LIKE ?", "%#{params[:city].capitalize}%")
       @no_search_results = false
     else
       @puppies = Puppy.all
     end
-    @body_class = "need-padding"
+    @body_class = "extra-padding"
+    
   end
 
   def show
