@@ -1,5 +1,5 @@
 class PuppiesController < ApplicationController
-  before_action :set_puppy, only: [:show]
+  before_action :set_puppy, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
@@ -13,18 +13,30 @@ class PuppiesController < ApplicationController
   end
 
   def new
+    @puppy = Puppy.new
   end
 
   def create
+    @puppy = Puppy.new(puppy_params)
+    @puppy.user = current_user
+    if @puppy.save
+      redirect_to puppy_path(@puppy)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @puppy.update(puppy_params)
+    redirect_to puppy_path(@puppy)
   end
 
   def destroy
+    @puppy.destroy
+    redirect_to puppies_path
   end
 
   private

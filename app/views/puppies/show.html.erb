@@ -37,6 +37,7 @@
   <% end %>
 
   <%= link_to "Edit", edit_puppy_path %>
+  <%= link_to "Delete", puppy_path(@puppy), method: :delete %>
   <br>
   <%= link_to "Back to list", puppies_path %>
 
