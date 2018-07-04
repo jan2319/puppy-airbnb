@@ -2,6 +2,10 @@
 <p>Find me in app/views/puppies/index.html.erb</p>
 
 <div class="container">
+  <% if @puppies.empty? %>
+    <p>Sorry, we couldn't find puppies in your city.</p>
+  <% end %>
+
   <% @puppies.each do |puppy| %>
     <%= link_to puppy_path(puppy) do %>
       <div class="card-puppy">
