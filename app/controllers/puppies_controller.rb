@@ -4,7 +4,7 @@ class PuppiesController < ApplicationController
 
   def index
     if !params[:city].nil? && !params[:city].empty?
-      @puppies = Puppy.where("city = ?", params[:city])
+      @puppies = Puppy.where("city LIKE ?", "%#{params[:city].capitalize}%")
     else
       @puppies = Puppy.all
     end
