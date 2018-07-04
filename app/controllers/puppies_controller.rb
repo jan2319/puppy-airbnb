@@ -3,8 +3,12 @@ class PuppiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
+    if !params[:city].nil? && !params[:city].empty?
+      @puppies = Puppy.where("city = ?", params[:city])
+    else
+      @puppies = Puppy.all
+    end
     @body_class = "need-padding"
-    @puppies = Puppy.all
   end
 
   def show
