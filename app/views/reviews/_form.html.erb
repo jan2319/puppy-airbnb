@@ -1,7 +1,10 @@
 <%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :title %>
   <%= f.input :description%>
-  <%= f.input :rating %>
+ <%= f.input :rating, :as => :grouped_select,
+                                     :collection => { [1,2,3,4,5] => 'Rating - 1: Low to 5: High' },
+                                     :group_method => :first,
+                                     :group_label_method => :last %>
   <%= f.submit "Submit Review", class: "btn btn-primary" %>
 <% end %>
 
