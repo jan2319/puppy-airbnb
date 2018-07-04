@@ -1,7 +1,31 @@
 /* Main navbar */
+.flex-container {
+   display: flex;
+   flex-direction: column;
+
+}
+
+$filter-height: 60px;
+$navbar-height: 70px;
+
+body {
+  padding-top: $navbar-height;
+}
+
+body.homepage {
+  padding-top: 0;
+}
+
+body.need-padding {
+  padding-top: $navbar-height + $filter-height;
+  .navbar-wagon {
+    background-color: red;
+  }
+}
+
 .navbar-wagon {
 
-  height: 70px;
+  height: $navbar-height;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -9,6 +33,7 @@
   background-color: transparent;
   transition: 0.5s background-color ease;
 }
+
 
 .navbar-wagon-white {
   background-color: white;
@@ -51,6 +76,10 @@
   filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
 
+.filter_bar {
+  height: $filter-height;
+  background-color: black;
+}
 
 
 

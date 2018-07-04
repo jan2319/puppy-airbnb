@@ -9,8 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
-    <%= render "/components/navbar" %>
+  <body class="<%= @body_class %>">
+    <%= render "components/navbar" %>
 <!--     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <%= yield %>
