@@ -8,12 +8,10 @@ class ReviewsController < ApplicationController
   def create
 
     @review = Review.new(review_params)
-    ### NOTE USER MUST BE REPLACED as soon as we have "users"
-    @user = User.last
     @puppy = @booking.puppy
     @review.puppy = @puppy
     @review.booking = @booking
-    @review.user = @user
+    @review.user = current_user
 
     if @review.save
       redirect_to puppy_booking_path(@puppy, @booking)

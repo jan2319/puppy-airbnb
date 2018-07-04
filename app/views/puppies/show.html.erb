@@ -20,6 +20,22 @@
     <li>Toilet training level: <%= @puppy.toilet_training_level %></li>
   </ul>
 
+  <p><strong>Reviews for this puppy</strong></p>
+  <% @reviews.each do |review| %>
+    <p><%= review.title %></p>
+    <p><%= review.description %></p>
+
+    <% num = review.rating %>
+    <% anum = 5 - review.rating %>
+    <% num.times do %>
+    <i class="fas fa-star" style="color: #f9d949"></i>
+    <% end %>
+    <% anum.times do %>
+    <i class="far fa-star" style="color: #f9d949"></i>
+    <% end %>
+
+  <% end %>
+
   <%= link_to "Edit", edit_puppy_path %>
   <br>
   <%= link_to "Back to list", puppies_path %>
