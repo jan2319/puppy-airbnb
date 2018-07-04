@@ -31,16 +31,30 @@ class PuppiesController < ApplicationController
   end
 
   def edit
+    # User that clicks has to be user that created puppy
+    if @puppy.user.id == current_user.id
+
+    else
+      redirect_to puppy_path(@puppy)
+    end
   end
 
   def update
-    @puppy.update(puppy_params)
-    redirect_to puppy_path(@puppy)
+    if @puppy.user.id == current_user.id
+      @puppy.update(puppy_params)
+      redirect_to puppy_path(@puppy)
+    else
+      redirect_to puppy_path(@puppy)
+    end
   end
 
   def destroy
-    @puppy.destroy
-    redirect_to puppies_path
+    if @puppy.user.id == current_user.id
+      @puppy.destroy
+      redirect_to puppies_path
+    else
+      redirect_to puppy_path(@puppy)
+    end
   end
 
   private
