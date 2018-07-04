@@ -1,55 +1,61 @@
-<h1>Puppies#show</h1>
-<p>Find me in app/views/puppies/show.html.erb</p>
-
-<div class="container">
-
-  <%= image_tag(@puppy.photo_url, alt: "puppy pic") %>
-
-  <h2><%= @puppy.title %></h2>
-  <h3><%= @puppy.name %></h3>
-
-  <p> <%= @puppy.street %>, <%= @puppy.zipcode %>, <%= @puppy.city %>, <%= @puppy.country %></p>
-  <ul>
-    <li><%= @puppy.description %></li>
-  </ul>
-
-  <ul>
-    <li>Daily Price: <%= @puppy.daily_price %></li>
-    <li>Birthdate: <%= @puppy.birthdate %></li>
-    <li>Breed: <%= @puppy.breed.name %></li>
-    <li>Toilet training level: <%= @puppy.toilet_training_level %></li>
-  </ul>
-
-  <p><strong>Reviews for this puppy</strong></p>
-  <% @reviews.each do |review| %>
-    <p><%= review.title %></p>
-    <p><%= review.description %></p>
-
-    <% num = review.rating %>
-    <% anum = 5 - review.rating %>
-    <% num.times do %>
-    <i class="fas fa-star" style="color: #f9d949"></i>
-    <% end %>
-    <% anum.times do %>
-    <i class="far fa-star" style="color: #f9d949"></i>
-    <% end %>
-
-  <% end %>
-
-  <% if current_user %>
-    <% if @puppy.user.id == current_user.id %>
-      <%= link_to "Edit", edit_puppy_path %>
-      <%= link_to "Delete", puppy_path(@puppy), method: :delete %>
-    <% else %>
-    <% end %>
-  <% end %>
-
-  <br>
-
-  <%= link_to "Back to list", puppies_path %>
-
+  <div class="dark-gray">
+    <h1><%= @puppy.title %></h1>
   </div>
-    <%= render "bookings/form", puppy: @puppy, booking: @booking %>
+  <div class="full-width">
+    <div class="flex-horizontal">
+      <div class="flex-item">
+        <h2><%= @puppy.name %></h2>
+
+        <p> <%= @puppy.street %>, <%= @puppy.zipcode %>, <%= @puppy.city %>, <%= @puppy.country %></p>
+        <ul>
+          <li><%= @puppy.description %></li>
+        </ul>
+
+        <ul>
+          <li>Daily Price: <%= @puppy.daily_price / 100 %>,00€</li>
+          <li>Birthdate: <%= @puppy.birthdate %></li>
+          <li>Breed: <%= @puppy.breed.name %></li>
+          <li>Toilet training level: <%= @puppy.toilet_training_level %></li>
+        </ul>
+      </div>
+      <%= image_tag(@puppy.photo_url, class: "profile-image", alt: "puppy pic") %>
+    </div>
   </div>
 
-</div>
+    <div class="container index-container">
+      <div class="row top-space">
+        <div <div class="col-xs-12 col-sm-8">
+          <p><strong>Reviews for this puppy</strong></p>
+          <% @reviews.each do |review| %>
+          <p><%= review.title %></p>
+          <p><%= review.description %></p>
+
+          <% num = review.rating %>
+          <% anum = 5 - review.rating %>
+          <% num.times do %>
+          <i class="fas fa-star" style="color: #f9d949"></i>
+          <% end %>
+          <% anum.times do %>
+          <i class="far fa-star" style="color: #f9d949"></i>
+          <% end %>
+
+          <% end %>
+
+          <% if current_user %>
+            <% if @puppy.user.id == current_user.id %>
+                <%= link_to "Edit", edit_puppy_path %>
+                <%= link_to "Delete", puppy_path(@puppy), method: :delete %>
+              <% else %>
+            <% end %>
+          <% end %>
+
+          <br>
+
+          <%= link_to "Back to list", puppies_path %>
+
+        </div>
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <%= render "bookings/form", puppy: @puppy, booking: @booking %>
+          </div>
+      </div>
+    </div>
