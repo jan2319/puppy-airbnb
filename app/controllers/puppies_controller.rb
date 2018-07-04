@@ -2,6 +2,7 @@ class PuppiesController < ApplicationController
   before_action :set_puppy, only: [:show]
 
   def index
+    @body_class = "need-padding"
     @puppies = Puppy.all
   end
 

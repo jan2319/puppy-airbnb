@@ -1,23 +1,26 @@
-<div class="navbar-wagon navbar-fixed-top">
-  <!-- Logo -->
+<div class="flex-container navbar-fixed-top">
+
+
+  <div class="navbar-wagon">
+    <!-- Logo -->
 <!--     <a href="/" class="navbar-wagon-brand">
       <img src="/assets/images/logo.png" alt="logo">
     </a> -->
     <div class="navbar-wagon-brand">
-    <%= link_to root_path, target: "_blank"  do %>
+      <%= link_to root_path, target: "_blank"  do %>
       <!-- <%= image_tag asset_path("logo.png") %> -->
-    <% end %>
+      <% end %>
     </div>
 
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Share Your Puppy</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Sign In</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Log In</a>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">Share Your Puppy</a>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">Sign In</a>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">Log In</a>
 
-    <!-- Profile picture with dropdown list -->
+      <!-- Profile picture with dropdown list -->
 <!--     <div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
@@ -42,3 +45,15 @@
     </div>
   </div>
 </div>
+<% if current_page?(puppies_path) %>
+  <div class=filter_bar>
+    You can filter here
+  </div>
+<% end %>
+</div>
+
+
+
+
+
+

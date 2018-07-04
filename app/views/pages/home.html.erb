@@ -3,14 +3,13 @@
   <%= image_tag asset_path("puppy-banner.jpg"), class:"img-responsive", alt: "Puppy banner" %>
 </div> -->
 
-
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(180, 180, 180,0.4) 0%, rgba(120, 120, 120,0.6) 50%), url('<%= asset_path('puppy-banner.jpg') %>');">
   <div class="banner-content">
     <h2><strong>Find yourself a new furry friend today!</strong></h2>
-    <%= form_tag(puppies_path, class: "form-group") do %>
-      <%= text_field_tag :city, nil, placeholder: "Type your city here", class:"form-control" %>
+    <%= form_tag(puppies_path, class: "form-group home-form") do %>
+      <%= text_field_tag :city, nil, placeholder: "Type your city here", class:"form-control home-input" %>
       <%#= f.input :start_date, as: :datetime  %>
-      <%= submit_tag "Go", class:"btn btn-primary" %>
+      <%= submit_tag "Go", class:"btn btn-primary home-button" %>
     <% end %>
   </div>
 </div>
@@ -18,7 +17,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
+      <p>
       <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
+      </p>
     </div>
   </div>
 </div>
