@@ -53,5 +53,11 @@
 }
 
 .index-container {
-  min-width: 90% !important;
+  min-width: 60% !important;
+}
+
+// Give padding to search result message
+.index-message {
+  padding-top: 10px;
+  padding-left: 20px;
 }

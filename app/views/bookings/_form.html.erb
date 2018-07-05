@@ -6,7 +6,7 @@
                               end_year: Date.today.year + 3, discard_hour: true,
                               order: [:day, :month, :year] %>
   <%= hidden_field_tag 'total_price', @puppy.daily_price %>
-  <p>Price per Day: <%= @puppy.daily_price/100 %>,00 €</p>
+  <p>Price per Day: <%= number_with_precision((@puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</p>
 
   <%= f.submit "Book Now", class: "btn btn-primary" %>
 <% end %>

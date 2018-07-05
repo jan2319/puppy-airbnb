@@ -12,7 +12,7 @@
         </ul>
 
         <ul>
-          <li>Daily Price: <%= @puppy.daily_price / 100 %>,00€</li>
+          <li>Daily Price: <%= number_with_precision((@puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</li>
           <li>Birthdate: <%= @puppy.birthdate %></li>
           <li>Breed: <%= @puppy.breed.name %></li>
           <li>Toilet training level: <%= @puppy.toilet_training_level %></li>
