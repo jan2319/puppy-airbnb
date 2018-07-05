@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      redirect_to puppy_booking_path(@puppy, @booking)
+      redirect_to bookings_path
     else
       render :new
     end

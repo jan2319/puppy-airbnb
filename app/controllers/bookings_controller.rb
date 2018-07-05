@@ -13,12 +13,14 @@ class BookingsController < ApplicationController
   end
 
   def show
-    total_price = (@booking.end_date - @booking.start_date)  / 60 / 60 / 24 * @puppy.daily_price
+    total_price = (@booking.end_date - @booking.start_date).to_i / 24 / 60 / 60 * @puppy.daily_price
     @booking.total_price = total_price
   end
 
   def confirm
     @booking = Booking.find(params[:booking_id])
+    total_price = (@booking.end_date - @booking.start_date).to_i / 24 / 60 / 60 * @puppy.daily_price
+    @booking.total_price = total_price
     @booking.confirmed = true
     @booking.save
     redirect_to puppy_booking_path(@puppy, @booking)
@@ -37,7 +39,7 @@ class BookingsController < ApplicationController
       @booking.user_id = current_user.id
 
       # Calculate Total Price depending on selected time period
-      total_price = (@end_date - @start_date)  / 60 / 60 / 24 * @puppy.daily_price
+      total_price = (@end_date - @start_date).to_i * @puppy.daily_price
       @booking.total_price = total_price
 
       if @booking.save

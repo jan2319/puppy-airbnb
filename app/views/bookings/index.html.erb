@@ -9,8 +9,7 @@
           <ul>
             <li><%= booking.start_date %></li>
             <li> <%= booking.end_date %></li>
-            <li><%= booking.total_price/100 %>,00€</li>
-
+            <li><%= number_with_precision((booking.total_price.to_f / 100).round(2), precision: 2) %> €</li>
             <li>
               <%= link_to "Add a Review", new_booking_review_path(booking) %>
             </li>
