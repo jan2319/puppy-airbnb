@@ -7,9 +7,10 @@
       <div class="flex-item">
 
         <% if @booking.confirmed? %>
-
+        <div class="confirmed-text">
           <p>Arf arf! Your booking is confirmed. <%= @puppy.name %> can't wait to meet you! </p>
           <br>
+        </div>
           <%= image_tag(@puppy.photo_url, class: "confirmation2-image", alt: "puppy pic") %>
           <br>
           <br>
@@ -19,16 +20,21 @@
 
         <% else %>
 
-
+        <div class="booking-intro">
           <p>Hey, thanks for choosing <%= @puppy.name %>. You'll love him! Please confirm your booking below.</p>
+        </div>
            <%= image_tag(@puppy.photo_url, class: "confirmation1-image", alt: "puppy pic") %>
+          <br>
+          <br>
+        <div class="booking-text">
           <p>Name of Puppy: <%= @puppy.name %></p>
-          <p>Start Date: <%= @booking.start_date %></p>
-          <p>End Date: <%= @booking.end_date %></p>
-          <p>Total Price: <%= @booking.total_price/100 %>,00€</p>
+          <p>Start Date: <%= @booking.start_date.strftime("%d %B %Y") %></p>
+          <p>End Date: <%= @booking.end_date.strftime("%d %B %Y") %></p>
+          <p>Total Price: € <%= @booking.total_price/100 %>,00</p>
 
           <p>Pick <%= @puppy.name %> up at: <%= @puppy.street %>, <%= @puppy.city %>, <%= @puppy.country %></p>
-
+        </div>
+          <br>
         <div>
           <%= link_to 'Confirm', puppy_booking_confirm_path(@puppy, @booking), class: "btn btn-lg btn-primary" %>
         </div>
