@@ -25,11 +25,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
+    # Store dates from params as actual dates and not string
+    @start_date = DateTime.parse(booking_params["start_date"])
+    @end_date = DateTime.parse(booking_params["end_date"])
+
     @booking = Booking.new(booking_params)
     @booking.puppy = @puppy
     @booking.user_id = current_user.id
-    @booking.total_price = params["total_price"]
+
+    # Calculate Total Price depending on selected time period
+    total_price = (@end_date - @start_date)  / 60 / 60 / 24 * @puppy.daily_price
+    @booking.total_price = total_price
 
     if @booking.save
       redirect_to puppy_booking_path(@puppy, @booking)
