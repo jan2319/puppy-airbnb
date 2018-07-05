@@ -6,13 +6,21 @@ function autocomplete() {
     var puppyCountry = document.getElementById('puppy_country');
 
     var fillForm = function(place) {
+      var fullAdress = "";
+
      for (var i = 0; i < place.address_components.length; i++) {
         var addressType = place.address_components[i].types[0];
         var value = place.address_components[i].long_name;
 
-        console.log(addressType);
+        if (addressType === "country") { puppyCountry.value = value; }
+        if (addressType === "locality") { puppyCity.value = value; }
+        if (addressType === "postal_code") { puppyZipcode.value = value; }
 
+        if (addressType === "street_number") { fullAdress = fullAdress + value }
+        if (addressType === "route") { fullAdress = fullAdress + " " + value }
       }
+
+      puppyStreet.value = fullAdress;
     };
 
     if (puppyStreet) {

@@ -4,7 +4,14 @@ class PuppiesController < ApplicationController
 
   def index
 
-    @puppies = Puppy.where.not(latitude: nil, longitude: nil)
+    @puppies_query = Puppy.near("%#{params[:city]}%", 50)
+    @query = params[:city]
+
+    if @puppies_query.present?
+      @puppies = @puppies_query
+    else
+      @puppies = Puppy.near("Milan", 50)
+    end
 
     @markers = @puppies.map do |puppy|
       {
@@ -13,13 +20,7 @@ class PuppiesController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
-    # STEPHANIES Old Code
-    # if !params[:city].nil? && !params[:city].empty?
-    #   @puppies = Puppy.where("city LIKE ?", "%#{params[:city].capitalize}%")
-    #   @no_search_results = false
-    # else
-    #   @puppies = Puppy.all
-    # end
+
     @body_class = "extra-padding"
 
   end
