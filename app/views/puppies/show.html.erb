@@ -3,62 +3,78 @@
   </div>
   <div class="full-width">
     <div class="flex-horizontal">
+
       <div class="flex-item">
         <h2><%= @puppy.name %></h2>
-
         <p> <%= @puppy.street %>, <%= @puppy.zipcode %>, <%= @puppy.city %>, <%= @puppy.country %></p>
         <ul>
           <li><%= @puppy.description %></li>
         </ul>
 
         <ul>
-          <li>Daily Price: <%= number_with_precision((@puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</li>
-          <li>Birthdate: <%= @puppy.birthdate.strftime("%d %B %Y") %></li>
-          <li>Breed: <%= @puppy.breed.name %></li>
-          <li>Toilet training level: <%= @puppy.toilet_training_level %></li>
+          <li><strong>Daily Price:</strong> <%= number_with_precision((@puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</li>
+          <li><strong>Birthdate:</strong> <%= @puppy.birthdate.strftime("%d %B %Y") %></li>
+          <li><strong>Breed:</strong> <%= @puppy.breed.name %></li>
+          <li><strong>Toilet training level:</strong> <%= @puppy.toilet_training_level %></li>
         </ul>
+        <br>
+        <% if current_user %>
+          <% if @puppy.user.id == current_user.id %>
+              <%= link_to "Edit", edit_puppy_path, class: "btn btn-danger" %>
+              <%= link_to "Delete", puppy_path(@puppy), method: :delete, class: "btn btn-danger" %>
+            <% else %>
+          <% end %>
+        <% end %>
+
       </div>
+
       <%= image_tag(@puppy.photo_url, class: "profile-image", alt: "puppy pic") %>
+
     </div>
   </div>
 
-    <div class="container index-container">
-      <div class="row top-space">
-        <div <div class="col-xs-12 col-sm-8">
-          <p><strong>Reviews for this puppy</strong></p>
-          <% @reviews.each do |review| %>
-          <p><%= review.title %></p>
-          <p><%= review.description %></p>
 
-          <% num = review.rating %>
-          <% anum = 5 - review.rating %>
-          <% num.times do %>
-          <i class="fas fa-star" style="color: #f9d949"></i>
-          <% end %>
-          <% anum.times do %>
-          <i class="far fa-star" style="color: #f9d949"></i>
-          <% end %>
+<div class="full-width">
+  <div class="flex-horizontal">
+    <div class="flex-item gray-ground">
 
-          <% end %>
 
-          <% if current_user %>
-            <% if @puppy.user.id == current_user.id %>
-                <%= link_to "Edit", edit_puppy_path %>
-                <%= link_to "Delete", puppy_path(@puppy), method: :delete %>
-              <% else %>
+
+          <div class="row">
+
+            <% @reviews.each do |review| %>
+              <div class="col-xs-6">
+                <div class="review-card">
+                  <h4><strong>"<%= review.title %>"</strong></h4>
+                  <p>"<%= review.description %>"</p>
+
+                  <% num = review.rating %>
+                  <% anum = 5 - review.rating %>
+                  <% num.times do %>
+                  <i class="fas fa-star" style="color: #f9d949"></i>
+                  <% end %>
+                  <% anum.times do %>
+                  <i class="far fa-star" style="color: #f9d949"></i>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
-          <% end %>
 
-          <br>
-
-          <%= link_to "Back to list", puppies_path %>
+            </div>
 
         </div>
-          <div class="col-xs-12 col-sm-4 col-md-3">
+
+
+          <div class="flex-item gray-ground">
             <% if notice.present? %>
               <p class="notice"> <i class="fas fa-exclamation-triangle"></i><%= notice %></p>
             <% end %>
-            <%= render "bookings/form", puppy: @puppy, booking: @booking %>
-          </div>
-      </div>
+            <div class="booking-form">
+              <h2>Book <%= @puppy.name %> Now</h2>
+              <%= render "bookings/form", puppy: @puppy, booking: @booking %>
+            </div>
+
+
     </div>
+  </div>
+</div>

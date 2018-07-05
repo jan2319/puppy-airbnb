@@ -5,6 +5,6 @@
   <%= hidden_field_tag 'total_price', @puppy.daily_price %>
   <p>Price per Day: <%= number_with_precision((@puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</p>
 
-  <%= f.submit "Book Now", class: "btn btn-primary" %>
+  <%= f.submit "Book Now", class: "btn btn-lg btn-primary" %>
 <% end %>
 
