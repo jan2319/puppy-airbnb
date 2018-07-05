@@ -89,8 +89,8 @@ body.extra-padding {
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 
@@ -148,4 +148,11 @@ body.extra-padding {
   border-top: 1px solid #bdbdbd;
 }
 
+.hamburger {
+  color: $dark-gray;
+}
 
+.white-t-clear-bg {
+  color: white;
+  background-color: transparent;
+}
