@@ -1,15 +1,19 @@
 <div class="container">
 
+<h2>My Bookings</h2>
+
   <% @bookings.each do |booking| %>
     <% if booking.confirmed %>
     <% @printed = true %>
       <%= link_to puppy_booking_path(booking.puppy, booking) do %>
         <div class="card-puppy">
-          <h3>Your booking of <%= booking.puppy.name %></h3>
+          <h4>Your booking of <%= booking.puppy.name %></h4>
           <ul>
             <li><%= booking.start_date %></li>
             <li> <%= booking.end_date %></li>
-            <li><%= booking.total_price/100 %>,00€</li>
+            <li> <%= booking.total_price/100 %>,00€</li>
+
+
 
             <li>
               <%= link_to "Add a Review", new_booking_review_path(booking) %>
