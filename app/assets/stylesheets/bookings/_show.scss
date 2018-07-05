@@ -1,0 +1,25 @@
+.dark-gray {
+  color: white;
+  background-color: $dark-gray;
+  padding: 20px;
+  h1 {
+    margin:0;
+  }
+}
+
+.confirmation1-image {
+    max-height: 20vh;
+    flex: 0 0 auto !important;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.confirmation2-image {
+    max-height: 40vh;
+    flex: 0 0 auto !important;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
