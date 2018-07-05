@@ -17,6 +17,7 @@
 @import "bookings/show";
 
 
-body {
+body, input[placeholder], .form-control  {
   color: $dark-gray;
 }
+
