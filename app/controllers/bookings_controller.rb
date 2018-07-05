@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def show
+    total_price = (@booking.end_date - @booking.start_date)  / 60 / 60 / 24 * @puppy.daily_price
+    @booking.total_price = total_price
   end
 
   def confirm

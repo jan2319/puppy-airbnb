@@ -17,7 +17,8 @@
   <br>
   <p>Start Date: <%= @booking.start_date %></p>
   <p>End Date: <%= @booking.end_date %></p>
-  <p>Total Price: <%= @booking.total_price/100 %>,00€</p>
+  <p>Total Price: <%= number_with_precision((@booking.total_price.to_f / 100).round(2), precision: 2) %> €</p>
+
 
   <p>Name of Puppy: <%= @puppy.name %></p>
   <p>Pick <%= @puppy.name %> up at: <%= @puppy.street %></p>
