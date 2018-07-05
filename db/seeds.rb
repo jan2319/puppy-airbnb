@@ -17,6 +17,7 @@ Review.destroy_all
 Booking.destroy_all
 Puppy.destroy_all
 Breed.destroy_all
+User.destroy_all
 
 puts 'Creating breeds...'
 
