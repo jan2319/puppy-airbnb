@@ -55,6 +55,9 @@
 
         </div>
           <div class="col-xs-12 col-sm-4 col-md-3">
+            <% if notice.present? %>
+              <p class="notice"> <i class="fas fa-exclamation-triangle"></i><%= notice %></p>
+            <% end %>
             <%= render "bookings/form", puppy: @puppy, booking: @booking %>
           </div>
       </div>
