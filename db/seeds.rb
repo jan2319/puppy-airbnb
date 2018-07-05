@@ -17,6 +17,7 @@ Review.destroy_all
 Booking.destroy_all
 Puppy.destroy_all
 Breed.destroy_all
+User.destroy_all
 
 puts 'Creating breeds...'
 
@@ -27,7 +28,6 @@ breed_array = breed_list["message"].to_a
 breed_array.each do |breed|
   Breed.create(name: breed[0].capitalize)
 end
-
 
 
 user_attributes = [
@@ -57,8 +57,8 @@ puppies_attributes = [
     daily_price: 5900,
     birthdate: Date.today,
     toilet_training_level: 4,
-    user_id: 1,
-    breed_id: 1,
+    user_id: User.all.pluck(:id).sample,
+    breed_id: Breed.all.pluck(:id).sample,
     photo_url: 'https://cdn3.list25.com/wp-content/uploads/2013/08/whiteschnauzerpuppy-610x626.jpg',
   },
   {
@@ -72,8 +72,8 @@ puppies_attributes = [
     daily_price: 4900,
     birthdate: Date.today,
     toilet_training_level: 3,
-    user_id: 1,
-    breed_id: 2,
+    user_id: User.all.pluck(:id).sample,
+    breed_id: Breed.all.pluck(:id).sample,
     photo_url: 'https://cdn4.list25.com/wp-content/uploads/2013/08/Toypuddle-610x412.jpg',
   },
   {
@@ -87,8 +87,8 @@ puppies_attributes = [
     daily_price: 7900,
     birthdate: Date.today,
     toilet_training_level: 5,
-    user_id: 1,
-    breed_id: 3,
+    user_id: User.all.pluck(:id).sample,
+    breed_id: Breed.all.pluck(:id).sample,
     photo_url: 'https://cdn3.list25.com/wp-content/uploads/2013/08/Rottweilerpuppy2-610x412.jpg',
   },
   {
@@ -102,8 +102,8 @@ puppies_attributes = [
     daily_price: 6900,
     birthdate: Date.today,
     toilet_training_level: 2,
-    user_id: 1,
-    breed_id: 4,
+    user_id: User.all.pluck(:id).sample,
+    breed_id: Breed.all.pluck(:id).sample,
     photo_url: 'https://cdn2.list25.com/wp-content/uploads/2013/08/SiberianHuskypuppyinbasket2-610x412.jpg',
   },
   {
@@ -117,8 +117,8 @@ puppies_attributes = [
     daily_price: 4900,
     birthdate: Date.today,
     toilet_training_level: 1,
-    user_id: 1,
-    breed_id: 5,
+    user_id: User.all.pluck(:id).sample,
+    breed_id: Breed.all.pluck(:id).sample,
     photo_url: 'https://cdn4.list25.com/wp-content/uploads/2013/08/BostonTerrier2-610x412.jpg',
   },
 ]
