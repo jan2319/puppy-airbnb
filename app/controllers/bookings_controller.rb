@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     @booking = Booking.new(booking_params)
     @booking.puppy = @puppy
     @booking.user_id = current_user.id

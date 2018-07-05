@@ -5,3 +5,5 @@ initUpdateNavbarOnScroll();
 import { autocomplete } from '../components/autocomplete';
 // [...]
 autocomplete();
+
+import "../plugins/flatpickr"
