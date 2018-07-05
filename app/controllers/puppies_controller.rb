@@ -1,5 +1,6 @@
 class PuppiesController < ApplicationController
-  before_action :set_puppy, only: [:show, :edit, :update, :destroy]
+  before_action :set_puppy, only: [:show, :update, :destroy]
+  before_action :set_puppy_for_edit, only: [:edit]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
@@ -24,7 +25,8 @@ class PuppiesController < ApplicationController
   end
 
   def create
-    puppy_params[:daily_price] = puppy_params[:daily_price].to_f.round(2) * 100
+    # price_in_cents = puppy_params[:daily_price].to_f.round(2) * 100
+    # puppy_params[:daily_price] = price_in_cents.to_i.to_s
     @puppy = Puppy.new(puppy_params)
     @puppy.user = current_user
     if @puppy.save
@@ -64,10 +66,18 @@ class PuppiesController < ApplicationController
   private
 
   def puppy_params
+    price_in_cents = params[:puppy][:daily_price].to_f.round(2) * 100
+    params[:puppy][:daily_price] = price_in_cents.to_i
     params.require(:puppy).permit(:name, :photo_url, :description, :street, :zipcode, :city, :country, :daily_price, :birthdate, :toilet_training_level, :breed_id, :title)
   end
 
   def set_puppy
     @puppy = Puppy.find(params[:id])
+  end
+
+  def set_puppy_for_edit
+    @puppy = Puppy.find(params[:id])
+    @puppy.daily_price = @puppy.daily_price.to_f / 100
+    @puppy
   end
 end
