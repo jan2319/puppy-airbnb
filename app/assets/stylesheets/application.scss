@@ -16,6 +16,7 @@
 @import "puppies/index";
 
 
-body {
+body, input[placeholder], .form-control  {
   color: $dark-gray;
 }
+
