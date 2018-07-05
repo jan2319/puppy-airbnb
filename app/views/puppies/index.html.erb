@@ -1,25 +1,35 @@
+<div class="content">
 
-
-
-
-
-<div class="container index-container">
-  <div class="row">
-  <% if @puppies.empty? %>
-    <p>Sorry, we couldn't find puppies in your city.</p>
-  <% end %>
-    <% @puppies.each do |puppy| %>
-    <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= puppy.photo_url %>');">
-        <div class="card-category"><%= puppy.name %></div>
-        <div class="card-description">
-          <h2><%= puppy.title %></h2>
-          <p><%= number_with_precision((puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random">
-        <a class="card-link" href="<%= puppy_path(puppy) %>" ></a>
+  <div class="container index-container">
+    <div class="row">
+      <div class="index-message">
+        <% if @puppies_query.empty? %>
+          <h2>Wuff, we couldn't find puppies for <%= @query %>.</h2>
+          <h4>Check out some of our Puppies in Milan instead.</h4>
+        <% else %>
+          <h4>We found <strong><%= @puppies.length %></strong> results for your location</h4>
+        <% end %>
+        <%=  link_to "Start new Search", root_path%>
       </div>
+      <% @puppies.each do |puppy| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= puppy.photo_url %>');">
+          <div class="card-category"><%= puppy.name %></div>
+          <div class="card-description">
+            <h2><%= puppy.title %></h2>
+            <p><%= number_with_precision((puppy.daily_price.to_f / 100).round(2), precision: 2) %> €</p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random">
+          <a class="card-link" href="<%= puppy_path(puppy) %>" ></a>
+        </div>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
+
+  <div class="container map-container">
+    <div id="map" data-markers="<%= @markers.to_json %>">
+    </div>
+  </div>
+
 </div>

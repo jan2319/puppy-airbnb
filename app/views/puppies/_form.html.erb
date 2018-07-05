@@ -8,7 +8,7 @@
   <%= f.input :zipcode %>
   <%= f.input :city %>
   <%= f.input :country, as: :string %>
-  <%= f.input :daily_price, label: "Daily Price in Euros (ex: 10.78€)" %>
+  <%= f.input :daily_price, label: "Daily Price in Euros (ex: 10.78)" %>
   <%= f.input :birthdate, as: :datetime, start_year: Date.today.year,
                               end_year: Date.today.year - 10, discard_hour: true,
                               order: [:day, :month, :year] %>

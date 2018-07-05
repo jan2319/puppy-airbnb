@@ -16,6 +16,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'geocoder'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
