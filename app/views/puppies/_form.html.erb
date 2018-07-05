@@ -1,24 +1,33 @@
-<%= simple_form_for [@puppy] do |f| %>
 
-  <%= f.input :title, label: "Title of your offer" %>
-  <%= f.input :name, label: "Name of Puppy" %>
-  <p><strong>Describe your puppy*</strong></p>
-  <%= f.input_field :description %>
-  <%= f.input :street %>
-  <%= f.input :zipcode %>
-  <%= f.input :city %>
-  <%= f.input :country, as: :string %>
-  <%= f.input :daily_price, label: "Daily Price in Euros (ex: 10.78€)" %>
-  <%= f.input :birthdate, as: :datetime, start_year: Date.today.year,
-                              end_year: Date.today.year - 10, discard_hour: true,
-                              order: [:day, :month, :year] %>
-  <%= f.input :toilet_training_level, :as => :grouped_select,
-                                     :collection => { [1,2,3,4,5] => 'Levels - 1: Low to 5: High' },
-                                     :group_method => :first,
-                                     :group_label_method => :last %>
-  <%= f.association :breed, include_hidden: false %>
-  <%= f.input :photo_url %>
+  <div class="flex-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 padding">
+      <%= simple_form_for [@puppy] do |f| %>
+      <%= f.input :title, label: "Title of your offer" %>
+      <%= f.input :name, label: "Name of Puppy" %>
+      <!--<%= f.input :birthdate, as: :string, required: false, input_html: {class: "datepicker"} %> -->
+      <%= f.input :toilet_training_level, :as => :grouped_select,
+      :collection => { [1,2,3,4,5] => 'Levels - 1: Low to 5: High' },
+      :group_method => :first,
+      :group_label_method => :last %>
+      <%= f.association :breed, include_hidden: false %>
+    </div>
 
-  <%= f.submit "Save Puppy", class: "btn btn-primary" %>
-<% end %>
+    <div class="col-xs-12 col-sm-6 padding">
+      <%= f.input :street %>
+      <%= f.input :zipcode %>
+      <%= f.input :city %>
+      <%= f.input :country, as: :string %>
+      <%= f.input :daily_price, label: "Daily Price in Euros (ex: 10.78€)" %>
+      <%= f.input :photo_url %>
+    </div>
+  </div>
+    <div class="flex-container block padding1">
+      <%= f.input :description, label: "Describe your puppy"%>
+      <div class="row padding1">
+      <%= f.submit "Save Puppy", class: "col-xs-12 col-md-2 btn btn-primary margin"%>
+      </div>
+    </div>
+      <% end %>
+</div>
 
