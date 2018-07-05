@@ -14,8 +14,9 @@
 @import "components/index";
 @import "pages/index";
 @import "puppies/index";
+@import "bookings/show";
 
-
-body {
+body, input[placeholder], .form-control  {
   color: $dark-gray;
 }
+

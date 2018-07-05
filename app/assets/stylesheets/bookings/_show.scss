@@ -1,0 +1,39 @@
+.dark-gray {
+  color: white;
+  background-color: $dark-gray;
+  padding: 20px;
+  h1 {
+    margin:0;
+  }
+}
+
+.confirmation1-image {
+    max-height: 25vh;
+    flex: 0 0 auto !important;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.confirmation2-image {
+    max-height: 40vh;
+    flex: 0 0 auto !important;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.booking-intro {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.booking-text {
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 15px;
+
+}
+
+.confirmed-text {
+  font-size: 20px;
+  font-weight: bolder;
+}
