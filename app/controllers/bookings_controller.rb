@@ -75,8 +75,16 @@ class BookingsController < ApplicationController
   end
 
   def check_puppy_available(start_date, end_date, puppy)
-    puppy.bookings.each do |booking|
-      @value = booking.start_date <= end_date && booking.end_date <= start_date
+    # Make sure only to check for bookings that are CONFIRMED
+    @all_bookings = puppy.bookings.where("confirmed = ? ", true)
+    # If there are no confirmed bookings, puppy is available
+    if @all_bookings.empty?
+      @value = true
+    else
+      # If there are confirmed bookings, check whether dates overlap
+      @all_bookings.each do |booking|
+        @value = booking.start_date <= end_date && booking.end_date <= start_date
+      end
     end
     return @value
   end
