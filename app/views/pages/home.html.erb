@@ -7,7 +7,7 @@
   <div class="banner-content">
     <h2><strong>Find yourself a new furry friend today!</strong></h2>
     <%= form_tag(puppies_path, method: :get, class: "form-group home-form") do %>
-      <%= text_field_tag :city, nil, placeholder: "Type your city here", class:"form-control home-input" %>
+      <%= text_field_tag :city, nil, placeholder: "Type your city here", class:"form-control home-input", id: "puppy_street"   %>
       <%#= f.input :start_date, as: :datetime  %>
       <%= submit_tag "Go", class:"btn btn-primary home-button" %>
     <% end %>

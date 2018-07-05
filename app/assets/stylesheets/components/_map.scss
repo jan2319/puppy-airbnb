@@ -1,0 +1,11 @@
+//Map and Puppies now inside one "content-container" and displayed as flex
+
+#map {
+  flex: 0 0 250px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+}
+.content {
+  display: flex;
+}
