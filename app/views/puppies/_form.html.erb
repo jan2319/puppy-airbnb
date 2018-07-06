@@ -4,7 +4,7 @@
       <%= simple_form_for [@puppy] do |f| %>
       <%= f.input :title, label: "Title of your offer" %>
       <%= f.input :name, label: "Name of Puppy" %>
-      <!--<%= f.input :birthdate, as: :string, required: false, input_html: {class: "datepicker"} %> -->
+      <%= f.input :birthdate, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.input :toilet_training_level, :as => :grouped_select,
       :collection => { [1,2,3,4,5] => 'Levels - 1: Low to 5: High' },
       :group_method => :first,

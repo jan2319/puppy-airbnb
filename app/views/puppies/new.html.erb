@@ -1,8 +1,10 @@
+  <div class="hundred-width">
   <div class="row">
     <div class="col-md-6 col-md-push-6 padding hundred-size" style="background-image: linear-gradient(-225deg, rgba(180, 180, 180,0.4) 0%, rgba(120, 120, 120,0.6) 50%), url('<%= asset_path('puppy_new_image.jpg') %>'); background-size: cover;">
       <h1 class="padding1 white-header">Share your puppy today!</h1>
     </div>
-    <div class="col-md-6 col-md-pull-6 padding">
+    <div class="col-xs-12 col-md-6 col-md-pull-6 padding">
       <%= render "puppies/form", puppy: @puppy%>
     </div>
   </div>
+</div>
