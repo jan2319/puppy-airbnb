@@ -1,10 +1,25 @@
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description%>
- <%= f.input :rating, :as => :grouped_select,
-                                     :collection => { [1,2,3,4,5] => 'Rating - 1: Low to 5: High' },
-                                     :group_method => :first,
-                                     :group_label_method => :last %>
-  <%= f.submit "Submit Review", class: "btn btn-primary" %>
-<% end %>
 
+
+
+<div class="flex-container">
+  <div class="row">
+      <%= simple_form_for [@booking, @review] do |f| %>
+    <div class="col-xs-12 padding">
+      <%= f.input :title %>
+      <%= f.input :description%>
+      <div style="width:50%;">
+      <%= f.input :rating, :as => :grouped_select,
+      :collection => { [1,2,3,4,5] => 'Rating - 1: Low to 5: High' },
+      :group_method => :first,
+      :group_label_method => :last %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex-container block padding1">
+  <div class="row padding1">
+    <%= f.submit "Submit Review", class: "col-xs-12 col-md-3 btn btn-primary btn-lg margin"%>
+    <% end %>
+  </div>
+</div>

@@ -1,15 +1,11 @@
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <div class="hundred-width">
+  <div class="row">
+    <div class="col-md-6 col-md-push-6 padding hundred-size" style="background-image: linear-gradient(-225deg, rgba(180, 180, 180,0.4) 0%, rgba(120, 120, 120,0.6) 50%), url(https://images.unsplash.com/photo-1470390356535-d19bbf47bacb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=95074e295d3508187f3ec4825c9ab0ba&auto=format&fit=crop&w=2250&q=80); background-size: cover; background-position: center;">
+      <h1 class="padding1 white-header">Log In</h1>
+    </div>
+    <div class="col-xs-12 col-md-6 col-md-pull-6 padding">
+      <%= render "devise/sessions/form" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

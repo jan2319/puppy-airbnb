@@ -1,7 +1,7 @@
 .hundred-size {
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: sticky;
-  top: 0px;
+  top: $navbar-height;
 }
 
 .white-header {
@@ -14,7 +14,7 @@
 @media screen and (max-width: 1000px) {
   .hundred-size {
     height: 50vh;
-
+    position: static;
   }
 }
 
