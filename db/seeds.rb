@@ -75,9 +75,9 @@ num = $addresses.size
 num.times do |i|
 
   puppies_attributes = {
-    title: Faker::Lorem.sentence(9),
+    title: Faker::RickAndMorty.quote,
     name: Faker::Name.first_name,
-    description: Faker::Lorem.paragraph(8),
+    description: Faker::Friends.quote,
     street: $addresses[i]["street"].capitalize,
     zipcode: $addresses[i]["postcode"],
     city: $addresses[i]["city"].capitalize,
@@ -100,7 +100,7 @@ puppies_attributes2 = [
   {
     title: 'Fluffy Puppy that is super cute',
     name: 'Cyrus',
-    description: Faker::Lorem.paragraph(8),
+    description: Faker::Friends.quote,
     street: 'Via Stendhal 41',
     zipcode: '20144',
     city: 'Milano',
@@ -115,7 +115,7 @@ puppies_attributes2 = [
   {
     title: 'British cute puppy everyone loves',
     name: 'Ben',
-    description: Faker::Lorem.paragraph(8),
+    description: Faker::Friends.quote,
     street: '15 Tamarisk Avenue',
     zipcode: 'RG2 8JB',
     city: 'Reading',
@@ -130,7 +130,7 @@ puppies_attributes2 = [
   {
     title: 'Italian Super Puppy',
     name: 'Gigi',
-    description: Faker::Lorem.paragraph(8),
+    description: Faker::Friends.quote,
     street: 'Corso Magenta 38',
     zipcode: '20123',
     city: 'Milano',
@@ -145,7 +145,7 @@ puppies_attributes2 = [
   {
     title: 'German Puppy that will make you smile everyday',
     name: 'Jan',
-    description: Faker::Lorem.paragraph(8),
+    description: "Lovely but still shits the bed",
     street: 'Schleissheimer Strasse 65',
     zipcode: '80797',
     city: 'Munich',
@@ -160,7 +160,7 @@ puppies_attributes2 = [
   {
     title: 'A puppy from Belgium',
     name: 'Stephanie',
-    description: Faker::Lorem.paragraph(8),
+    description: "Pick me!",
     street: 'Corso Magenta 28',
     zipcode: '20123',
     city: 'Milano',
@@ -195,8 +195,8 @@ puts "Creating Bookings"
 
     reviews_attributes =
       {
-        title: Faker::Lorem.sentence(4),
-        description: Faker::Lorem.paragraph(8),
+        title: Faker::RickAndMorty.quote,
+        description: Faker::Friends.quote,
         rating: rand(1..5),
         booking_id: booking.id,
         user_id: booking.user.id,
