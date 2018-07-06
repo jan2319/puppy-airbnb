@@ -38,11 +38,11 @@
 
 
 
-        <div class="row">
-          <% if @puppy.reviews.blank? %>
-            <p>There are no reviews for <%= @puppy.name %> yet</p>
-            <p>You can add a review under "My Bookings"</p>
-          <% else %>
+          <div class="row">
+            <% if @puppy.reviews.blank? %>
+              <p>There are no reviews for <%= @puppy.name %> yet</p>
+            <% else %>
+
             <% @reviews.each do |review| %>
               <div class="col-xs-6">
                 <div class="review-card">
