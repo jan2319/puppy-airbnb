@@ -156,3 +156,25 @@ body.extra-padding {
   color: white;
   background-color: transparent;
 }
+
+.filter_bar {
+  display:flex;
+  align-items: center;
+}
+
+.filter_bar #read-sliders {
+  margin-left: 30px;
+}
+
+
+.filter_bar p {
+  margin-right: 60px;
+}
+
+.noUi-tooltip {
+  font-size: 12px;
+}
+
+.noUi-connect {
+  background-color: $blue !important;
+}

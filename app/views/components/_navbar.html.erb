@@ -24,7 +24,7 @@
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
+          <li><%= link_to 'Profile', edit_user_registration_path %></li>
           <li><%= link_to 'My Bookings', bookings_path %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete%></li>
         </ul>
@@ -43,17 +43,20 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle hamburger" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
+          <li><%= link_to 'Profile', edit_user_registration_path %></li>
+          <li><%= link_to 'My Bookings', bookings_path %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete%></li>
       </ul>
     </div>
   </div>
 </div>
 <% if current_page?(puppies_path) %>
   <div class=filter_bar>
-    You can filter here
-  </div>
+    <p>Filter your puppies by prices: </p>
+    <div class="" id="term-slider"></div>
+    <input type="hidden" name="smname" id="smname" />
+    <div class="btn btn-primary" id="read-sliders">Filter the price</div>
+    </div>
 <% end %>
 </div>
 

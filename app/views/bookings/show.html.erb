@@ -1,46 +1,57 @@
 <div class="dark-gray">
-<h1>Booking Confirmation</h1>
-  </div>
+  <h1>Booking Confirmation</h1>
+</div>
+
 
   <div class="full-width">
     <div class="flex-horizontal">
-      <div class="flex-item">
-
+      <div class="flex-item gray-ground">
         <% if @booking.confirmed? %>
+      <div class="container whitebox">
+        <div class="booking-text-container">
         <div class="confirmed-text">
           <p>Arf arf! Your booking is confirmed. <%= @puppy.name %> can't wait to meet you! </p>
           <br>
         </div>
-          <%= image_tag(@puppy.photo_url, class: "confirmation2-image", alt: "puppy pic") %>
-          <br>
-          <br>
-          <%= link_to 'Back to all Puppies' , puppies_path %>
+        </div>
 
-          <br>
+
+        <%= image_tag(@puppy.photo_url, class: "confirmation2-image", alt: "puppy pic") %>
+        <br>
+        <br>
+      <div class="booking-text-container">
+        <%= link_to 'Back to all Puppies' , puppies_path %>
+      </div>
+      </div>
+        <br>
 
         <% else %>
 
-        <div class="booking-intro">
-          <p>Hey, thanks for choosing <%= @puppy.name %>. You'll love him! Please confirm your booking below.</p>
-        </div>
-           <%= image_tag(@puppy.photo_url, class: "confirmation1-image", alt: "puppy pic") %>
-          <br>
-          <br>
-        <div class="booking-text">
-          <p>Name of Puppy: <%= @puppy.name %></p>
-          <p>Start Date: <%= @booking.start_date.strftime("%d %B %Y") %></p>
-          <p>End Date: <%= @booking.end_date.strftime("%d %B %Y") %></p>
-          <p>Total Price: <%= number_with_precision((@booking.total_price.to_f / 100).round(2), precision: 2) %> €</p>
+        <div class="container whitebox">
+          <div class="booking-intro">
+            <p>Hey, thanks for choosing <%= @puppy.name %>. You'll love him!</p>
+            <p>Please confirm your booking below.</p>
+          </div>
+          <%= image_tag(@puppy.photo_url, class: "confirmation1-image", alt: "puppy pic") %>
 
-          <p>Pick <%= @puppy.name %> up at: <%= @puppy.street %>, <%= @puppy.city %>, <%= @puppy.country %></p>
-        </div>
-          <br>
-        <div>
-          <%= link_to 'Confirm', puppy_booking_confirm_path(@puppy, @booking), class: "btn btn-lg btn-primary" %>
-        </div>
+          <div class="booking-text-container">
+            <div class="booking-text">
+              <p><strong>Name of Puppy: </strong><%= @puppy.name %></p>
+              <p><strong>Start Date: </strong><%= @booking.start_date.strftime("%d %B %Y") %></p>
+              <p><strong>End Date: </strong><%= @booking.end_date.strftime("%d %B %Y") %></p>
+              <p><strong>Total Price: </strong><%= number_with_precision((@booking.total_price.to_f / 100).round(2), precision: 2) %> €</p>
 
+              <p><strong>Pick <%= @puppy.name %> up at: </strong> <%= @puppy.street %>, <%= @puppy.city %>, <%= @puppy.country %></p>
+            </div>
+          </div>
+          <br>
+          <div>
+            <%= link_to 'Confirm', puppy_booking_confirm_path(@puppy, @booking), class: "btn btn-lg btn-primary btn-confirmation1" %>
+          </div>
+        </div>
 
         <% end %>
       </div>
     </div>
   </div>
+

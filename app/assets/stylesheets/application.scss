@@ -12,10 +12,12 @@
 // Your CSS partials
 @import "layouts/index";
 @import "components/index";
+@import "components/nouislider";
 @import "pages/index";
 @import "puppies/index";
 @import "bookings/show";
 @import "reviews/index";
+@import "bookings/index";
 
 body, input[placeholder], .form-control  {
   color: $dark-gray;

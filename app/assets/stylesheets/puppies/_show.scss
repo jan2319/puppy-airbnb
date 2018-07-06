@@ -3,6 +3,29 @@
   // height: 70vh;
   width: 100%;
   border-bottom: 1px solid rgb(200, 200, 200);
+
+  .profile-image {
+    max-height: 60vh;
+    flex: 0 0 auto !important;
+    overflow: hidden;
+  }
+}
+
+
+.flex-item-left {
+  background-color: white;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: 50px;
+  width: 60%;
+}
+
+.flex-item-right {
+  background-color: white;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: 50px;
+  width: 40%;
 }
 
 .flex-item {
@@ -14,12 +37,6 @@
   // box-shadow: 2px 2px 2px rgb(200, 200, 200);
   padding: 50px;
 
-  .profile-image {
-    // flex:0 0 auto;
-    max-height: 70vh;
-    flex: 0 0 auto !important;
-    overflow: hidden;
-  }
   ul {
     list-style: none;
   }
@@ -50,6 +67,7 @@
   text-align: center;
   min-height: 200px;
   border: 1px solid rgb(200, 200, 200);
+  margin-bottom: 20px;
 }
 
 .booking-form {
