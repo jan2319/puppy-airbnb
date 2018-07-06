@@ -1,3 +1,9 @@
+
+.sample {
+  display: flex;
+  justify-content: space-around;
+}
+
 .dark-gray {
   color: white;
   background-color: $dark-gray;
@@ -7,11 +13,28 @@
   }
 }
 
+.whitebox {
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px 5px;
+  border-radius: 4px;
+}
+
 .confirmation1-image {
-    max-height: 25vh;
+    max-width: 40vh;
     flex: 0 0 auto !important;
     overflow: hidden;
     margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    // width: 100%;
+}
+
+.btn-confirmation1 {
+    width: 36%;
+    margin-left: 32%;
+    margin-right: 32%
 }
 
 .confirmation2-image {
@@ -19,18 +42,26 @@
     flex: 0 0 auto !important;
     overflow: hidden;
     margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .booking-intro {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bolder;
+  text-align: center;
 }
 
 .booking-text {
   font-size: 15px;
   font-weight: normal;
   line-height: 15px;
+}
 
+.booking-text-container {
+  display: flex;
+  justify-content: space-around;
 }
 
 .confirmed-text {

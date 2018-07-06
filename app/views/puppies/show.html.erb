@@ -4,7 +4,7 @@
   <div class="full-width">
     <div class="flex-horizontal">
 
-      <div class="flex-item">
+      <div class="flex-item-left">
         <h2><%= @puppy.name %></h2>
         <p> <%= @puppy.street %>, <%= @puppy.zipcode %>, <%= @puppy.city %>, <%= @puppy.country %></p>
         <ul>
@@ -27,26 +27,27 @@
         <% end %>
 
       </div>
-
       <%= image_tag(@puppy.photo_url, class: "profile-image", alt: "puppy pic") %>
-
     </div>
   </div>
 
 
 <div class="full-width">
   <div class="flex-horizontal">
-    <div class="flex-item gray-ground">
+    <div class="flex-item-left gray-ground">
 
 
 
-          <div class="row">
-
+        <div class="row">
+          <% if @puppy.reviews.blank? %>
+            <p>There are no reviews for <%= @puppy.name %> yet</p>
+            <p>You can add a review under "My Bookings"</p>
+          <% else %>
             <% @reviews.each do |review| %>
               <div class="col-xs-6">
                 <div class="review-card">
                   <h4><strong>"<%= review.title %>"</strong></h4>
-                  <p>"<%= review.description %>"</p>
+                  <p>"<%= review.description.truncate(90) %>"</p>
 
                   <% num = review.rating %>
                   <% anum = 5 - review.rating %>
@@ -59,13 +60,14 @@
                 </div>
               </div>
             <% end %>
-
-            </div>
+          <% end %>
 
         </div>
 
+    </div>
 
-          <div class="flex-item gray-ground">
+
+          <div class="flex-item-right gray-ground">
             <% if notice.present? %>
               <p class="notice"> <i class="fas fa-exclamation-triangle"></i><%= notice %></p>
             <% end %>
