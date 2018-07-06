@@ -19,11 +19,11 @@
         </ul>
         <br>
         <% if current_user %>
-          <% if @puppy.user.id == current_user.id %>
-              <%= link_to "Edit", edit_puppy_path, class: "btn btn-danger" %>
-              <%= link_to "Delete", puppy_path(@puppy), method: :delete, class: "btn btn-danger" %>
-            <% else %>
-          <% end %>
+        <% if @puppy.user.id == current_user.id %>
+        <%= link_to "Edit", edit_puppy_path, class: "btn btn-danger" %>
+        <%= link_to "Delete", puppy_path(@puppy), method: :delete, class: "btn btn-danger" %>
+        <% else %>
+        <% end %>
         <% end %>
 
       </div>
@@ -32,51 +32,51 @@
   </div>
 
 
-<div class="full-width">
-  <div class="flex-horizontal">
-    <div class="flex-item-left gray-ground">
+  <div class="full-width">
+    <div class="flex-horizontal">
+      <div class="flex-item-left gray-ground">
 
 
 
-          <div class="row">
-            <% if @puppy.reviews.blank? %>
-              <p>There are no reviews for <%= @puppy.name %> yet</p>
-            <% else %>
+        <div class="row">
+          <% if @puppy.reviews.blank? %>
+          <p>There are no reviews for <%= @puppy.name %> yet</p>
+          <% else %>
 
-            <% @reviews.each do |review| %>
-              <div class="col-xs-6">
-                <div class="review-card">
-                  <h4><strong>"<%= review.title %>"</strong></h4>
-                  <p>"<%= review.description.truncate(90) %>"</p>
+          <% @reviews.each do |review| %>
+          <div class="col-xs-12 col-sm-6">
+            <div class="review-card">
+              <h4><strong>"<%= review.title %>"</strong></h4>
+              <p>"<%= review.description.truncate(90) %>"</p>
 
-                  <% num = review.rating %>
-                  <% anum = 5 - review.rating %>
-                  <% num.times do %>
-                  <i class="fas fa-star" style="color: #f9d949"></i>
-                  <% end %>
-                  <% anum.times do %>
-                  <i class="far fa-star" style="color: #f9d949"></i>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+              <% num = review.rating %>
+              <% anum = 5 - review.rating %>
+              <% num.times do %>
+              <i class="fas fa-star" style="color: #f9d949"></i>
+              <% end %>
+              <% anum.times do %>
+              <i class="far fa-star" style="color: #f9d949"></i>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
           <% end %>
 
         </div>
 
-    </div>
+      </div>
 
 
-          <div class="flex-item-right gray-ground">
-            <% if notice.present? %>
-              <p class="notice"> <i class="fas fa-exclamation-triangle"></i><%= notice %></p>
-            <% end %>
-            <div class="booking-form">
-              <h2>Book <%= @puppy.name %> Now</h2>
-              <%= render "bookings/form", puppy: @puppy, booking: @booking %>
-            </div>
+      <div class="flex-item-right gray-ground">
+        <% if notice.present? %>
+        <p class="notice"> <i class="fas fa-exclamation-triangle"></i><%= notice %></p>
+        <% end %>
+        <div class="booking-form">
+          <h2>Book <%= @puppy.name %> Now</h2>
+          <%= render "bookings/form", puppy: @puppy, booking: @booking %>
+        </div>
 
 
+      </div>
     </div>
   </div>
-</div>
