@@ -4,7 +4,7 @@ class PuppiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @puppies_query = Puppy.near("%#{params[:city]}%", 50)
+    @puppies_query = Puppy.near("%#{params[:city]}%", 2000)
     @query = params[:city]
 
     if @puppies_query.any?
