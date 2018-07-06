@@ -1,6 +1,15 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+  <div class="hundred-width">
+  <div class="row">
+    <% @booking = Booking.find(params[:booking_id]) %>
+    <% @puppy = @booking.puppy %>
+    <div class="col-md-6 col-md-push-6 padding hundred-size" style="background-image: linear-gradient(-225deg, rgba(180, 180, 180,0.4) 0%, rgba(120, 120, 120,0.6) 50%), url(<%= @puppy.photo_url %>); background-size: cover; background-position: center;">
+      <h1 class="padding1 white-header">Write a Review of your time with <%= @puppy.name %></h1>
+      <h4 class="padding1 white-centred">You were with <%= @puppy.name %> from <%= @booking.start_date.strftime("%d %B %Y") %> to <%= @booking.end_date.strftime("%d %B %Y") %></h4>
+    </div>
+    <div class="col-xs-12 col-md-6 col-md-pull-6 padding">
+      <%= render "reviews/form", booking: @booking, review: @review %>
+    </div>
+  </div>
+</div>
 
-  </div>
-    <%= render "reviews/form", booking: @booking, review: @review %>
-  </div>
+<!-- https://images.unsplash.com/photo-1447684808650-354ae64db5b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d3786eeaf183b022befb24523a4e64a0&auto=format&fit=crop&w=2247&q=80 -->
