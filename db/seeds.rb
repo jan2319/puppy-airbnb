@@ -75,7 +75,7 @@ num = $addresses.size
 num.times do |i|
 
   puppies_attributes = {
-    title: Dog.meme_phrase,
+    title: Faker::HowIMetYourMother.catch_phrase,
     name: Faker::Name.first_name,
     description: Faker::RickAndMorty.quote,
     street: $addresses[i]["street"].capitalize,
@@ -195,7 +195,7 @@ puts "Creating Bookings"
 
     reviews_attributes =
       {
-        title: Dog.meme_phrase,
+        title: Faker::Dog.meme_phrase,
         description: Faker::Friends.quote,
         rating: rand(1..5),
         booking_id: booking.id,
