@@ -7,10 +7,8 @@
       <h4 class="padding1 white-centred">You were with <%= @puppy.name %> from <%= @booking.start_date.strftime("%d %B %Y") %> to <%= @booking.end_date.strftime("%d %B %Y") %></h4>
     </div>
     <div class="col-xs-12 col-md-6 col-md-pull-6 padding">
-      <% 10.times do %>
 
         <%= render "reviews/form", booking: @booking, review: @review %>
-      <% end %>
 
     </div>
   </div>

@@ -89,3 +89,32 @@
 .have-account {
   padding: 30px 0 10px 0;
 }
+
+@media screen and (max-width: 1000px) {
+  .flex-horizontal {
+    img {
+    width: 300px;
+    object-fit: cover;
+    }
+  }
+  .gray-ground {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .flex-horizontal {
+    display: flex;
+    flex-direction: column-reverse;
+    img {
+      width: 100%;
+    }
+    .flex-item-left {
+      width: 100%;
+    }
+  }
+}
+
+
