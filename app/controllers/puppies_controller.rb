@@ -4,14 +4,17 @@ class PuppiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-
     @puppies_query = Puppy.near("%#{params[:city]}%", 50)
     @query = params[:city]
 
-    if @puppies_query.present?
+    if @puppies_query.any?
       @puppies = @puppies_query
     else
       @puppies = Puppy.near("Milan", 50)
+    end
+
+    if params[:price_from] and params[:price_to]
+      @puppies = @puppies.where("daily_price <= ? AND daily_price >= ?", params[:price_to].to_i * 100, params[:price_from].to_i * 100)
     end
 
     @markers = @puppies.map do |puppy|
