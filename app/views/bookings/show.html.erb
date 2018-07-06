@@ -36,12 +36,12 @@
 
           <div class="booking-text-container">
             <div class="booking-text">
-              <p>Name of Puppy: <%= @puppy.name %></p>
-              <p>Start Date: <%= @booking.start_date.strftime("%d %B %Y") %></p>
-              <p>End Date: <%= @booking.end_date.strftime("%d %B %Y") %></p>
-              <p>Total Price: <%= number_with_precision((@booking.total_price.to_f / 100).round(2), precision: 2) %> €</p>
+              <p><strong>Name of Puppy: </strong><%= @puppy.name %></p>
+              <p><strong>Start Date: </strong><%= @booking.start_date.strftime("%d %B %Y") %></p>
+              <p><strong>End Date: </strong><%= @booking.end_date.strftime("%d %B %Y") %></p>
+              <p><strong>Total Price: </strong><%= number_with_precision((@booking.total_price.to_f / 100).round(2), precision: 2) %> €</p>
 
-              <p>Pick <%= @puppy.name %> up at: <%= @puppy.street %>, <%= @puppy.city %>, <%= @puppy.country %></p>
+              <p><strong>Pick <%= @puppy.name %> up at: </strong> <%= @puppy.street %>, <%= @puppy.city %>, <%= @puppy.country %></p>
             </div>
           </div>
           <br>
